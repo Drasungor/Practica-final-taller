@@ -1,3 +1,5 @@
+3)Las librerías que usan templates se publican con todo el código fuente ya que al ser utilizadas deben tomar en cuenta la clase recibida y el tamaño de los objetos de las instancias de esa clase para poder operar correctamente. Al compilar, el programa trabaja con tamaños específicos, por lo que debe conocer el tamaño de los datos con los que opera para poder operar con ellos. Los templates generan código para cada tipo de dato que reciban, por lo que si este ya se encuentra compilado no podrá saber cómo trabajar con la clase recibida ya que no sabrá su tamaño.
+
 5)Un constructor del tipo MOVE es aquel utilizado cuando se quiere que un objeto se apropie de los atributos de otro objeto de la misma clase, dejando este en un estado válido pero con su información transferida al objeto construido. Es decir, si un objeto A es construido por movimiento recibiendo a B, entonces A se apropia de los atributos de B, mientras que B queda en un estado "nulo" pero válido para que se pueda continuar operando con este. Este constructor sirve para que un objeto tenga la información de otro sin tener que copiarla necesariamente o tener que pedir memoria dinámica y sin generar errores en la destrucción de ambos objetos (Ej: si un objeto tiene un puntero y se quiere copiar sus datos en otro objeto, se puede hacer en este otro un nuevo alloc y pasar los datos, pero es más eficiente pasarle el puntero y dejar el puntero del primero en null). 
 	Si el constructor por movimiento no es definido por el programador entonces es definido automáticamente si: 
 	- Todos los atributos son de tipos de datos nativos.
@@ -18,15 +20,39 @@ private:
 	std::string file;
 	
 public:
-	URL& operator<< () {
+	URL& operator<<(const URL& other) {
+		this->protocolo << other.protocolo;
+		this->port << other.port;
+		this->file << other.file;
+	}
+	
+	bool operator==(const URL& other) const {
+		return (this->protocolo == other.protocolo) &&
+			(this->port == other.port) &&
+		(this->file == other.file);
+	}
+	
+	URL& operator=(const URL& other) {
+		this->protocolo = other.protocolo;
+		this->port = other.port;
+		this->file = other.file;
 	}
 }
 
-7)
+7)Un functor es una clase cuyo único método definido es el operador (), esto se utiliza para simular el uso de una instancia de esta como una función, es decir, si un objeto obj es un functor, se llamará a este como una función utilizando la línea "obj()". Este tipo de objeto es útil para separar el recibimiento de los argumentos de una función del momento en el que esta es ejecutada, es utilizada por ejemplo para iteradores internos de contenedores, para evitar el envío de un atributo extra del tipo void*. Un ejemplo de uso de este tipo de objeto es:
 
-8)
+A obj(arg1, arg2); //Se crea el objeto y se le pasan los argumentos para la ejecución, que
+ 		   //este almacena en sus atributos
+obj(); //Se llama a la función que se quiere simular, utiliza los atributos que se recibió en el
+       //constructor, aunque también podría recibir algún argumento adicional
 
-9)
+8)La programación orientada a eventos es un paradigma que toma todas las acciones a realizar y las introduce en una cola, para luego ser ejecutadas cuando sean desencoladas. Se tiene entonces una cola de eventos, que almacena las acciones a realizar y determina el orden en el que estas son realizadas. El loop de eventos es aquel que se encarga de sacar un elemento de la cola y realizarlo en una iteración de este. 
+	Al utilizarse con interfaces gráficas, el loop de eventos es el loop que se encarga de procesar los requerimientos del usuario y delegar al programa las acciones que se deben realizar por haber recibido dicho evento (ej: si se hace click en una imagen, esta acción se almacenará en la cola de eventos, luego, cuando sea desencolada por el event loop, este delegará al programa la acción que debe realizar por haber el usuario clickeado en dicha imagen). 
+	Uno de los problemas que tiene este paradigma para las interacciones con el usuario es la existencia de eventos pesados, es decir, que tardan mucho en ejecutarse. La ejecución de estos eventos puede perjudicar la experiencia de usuario ya que congela el programa mientras se ejecuta. Para contrarrestar esto se puede dividir el evento pesado en distintos eventos más liviandos, entre los cuales se procesan las interacciones con el usuario, o se puede también delegar el evento pesado entero a un thread.
 
-10)
+10)- int (*A)(): es una declaración de un puntero a una función que retorna un int y no recibe argumentos.
+
+- char *B(unsigned a, short b) {}: es la definición de una función que retorna un puntero a char y cuyos argumentos son un entero positivo y un entero de 1 byte (también un char). Esta definición no permitiría la compilacíón del programa ya que no retorna un puntero a char.
+
+- static unsigned **C[3]: es la declaración de un array estático de punteros a punteros a punteros a enteros no signados que contiene 3 elementos.
 

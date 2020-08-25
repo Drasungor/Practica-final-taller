@@ -1,0 +1,32 @@
+5)Un constructor del tipo MOVE es aquel utilizado cuando se quiere que un objeto se apropie de los atributos de otro objeto de la misma clase, dejando este en un estado válido pero con su información transferida al objeto construido. Es decir, si un objeto A es construido por movimiento recibiendo a B, entonces A se apropia de los atributos de B, mientras que B queda en un estado "nulo" pero válido para que se pueda continuar operando con este. Este constructor sirve para que un objeto tenga la información de otro sin tener que copiarla necesariamente o tener que pedir memoria dinámica y sin generar errores en la destrucción de ambos objetos (Ej: si un objeto tiene un puntero y se quiere copiar sus datos en otro objeto, se puede hacer en este otro un nuevo alloc y pasar los datos, pero es más eficiente pasarle el puntero y dejar el puntero del primero en null). 
+	Si el constructor por movimiento no es definido por el programador entonces es definido automáticamente si: 
+	- Todos los atributos son de tipos de datos nativos.
+	- No hay un constructor por copia definido.
+	- No hay un destructor definido.
+	- No hay asignación por copia definida.
+	- No hay movimiento por asignación definido.
+	
+	Si no se cumple alguna de estas condiciones entonces se utilizará el constructor por copia cuando se llame al constructor por movimiento.
+	
+6)
+#include <string>
+
+class URL {
+private:
+	std::string protocolo;
+	std::string port;
+	std::string file;
+	
+public:
+	URL& operator<< () {
+	}
+}
+
+7)
+
+8)
+
+9)
+
+10)
+

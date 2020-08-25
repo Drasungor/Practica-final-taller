@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/agustin/Documents/Taller_de_programacion_1/Practica_final/24_7_2018/ej_1/main.cpp
+iostream
+-
+thread
+-
+condition_variable
+-
+mutex
+-
+

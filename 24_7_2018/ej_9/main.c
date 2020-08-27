@@ -23,7 +23,8 @@ int main(int argc, const char* argv[]) {
     }
     //clearerr(file);
     fseek(file, 0, SEEK_END);
-    int last_pos = ftell(file);
+    int file_size = ftell(file);
+    int last_pos = file_size/sizeof(uint16_t);
     uint16_t garbage = 0;
 
     //Agranda el archivo en la cantidad de bytes que se tienen que agregar
@@ -46,9 +47,11 @@ int main(int argc, const char* argv[]) {
     fread(&aux, sizeof(uint16_t), 1, file);
     while (!feof(file)) {
         fseek(file, written_numbers * sizeof(uint16_t), SEEK_SET);
+        fwrite(&aux, sizeof(uint16_t), 1, file);
         written_numbers++;
         if (aux % 5 == 1) {
             fseek(file, written_numbers * sizeof(uint16_t), SEEK_SET);
+            fwrite(&aux, sizeof(uint16_t), 1, file);
             written_numbers++;
         }
         i++;
@@ -56,10 +59,10 @@ int main(int argc, const char* argv[]) {
         fread(&aux, sizeof(uint16_t), 1, file);
     }
     fseek(file, 0, SEEK_SET);
-    printf("Archivo procesado\n", &aux);
+    printf("Archivo procesado\n");
     fread(&aux, sizeof(uint16_t), 1, file);
     while (!feof(file)) {
-        printf("%u\n", &aux);
+        printf("%u\n", aux);
         fread(&aux, sizeof(uint16_t), 1, file);
     }
     fclose(file);

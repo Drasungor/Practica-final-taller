@@ -48,8 +48,6 @@ int main(int argc, char** argv) {
         fseek(file, -2*sizeof(uint16_t), SEEK_CUR);
     }
 
-    //HASTA ACA ANDA BIEN
-
     fflush(aux); //escribimos los cambios a disco
 
     fclose(file);
@@ -62,7 +60,6 @@ int main(int argc, char** argv) {
     fread(&numberRead, sizeof(uint16_t), 1, file);
 
     while (!feof(file)) {
-        //printf("%u\n", numberRead);
         if ((numberRead - 1) % 5 == 0) {
             fwrite(&numberRead, sizeof(uint16_t), 1, aux);
         }
@@ -78,7 +75,7 @@ int main(int argc, char** argv) {
     fflush(aux); //escribimos los cambios a disco
     fseek(aux, -sizeof(uint16_t), SEEK_END);
 
-    for (int i = 0; i < (numberAmount + numbersToRepeat); ++i) { //debug
+    for (int i = 0; i < (numberAmount + numbersToRepeat); ++i) {
         fread(&numberRead, sizeof(uint16_t), 1, aux);
         printf("%u\n", numberRead);
         fseek(aux, -2*sizeof(uint16_t), SEEK_CUR);

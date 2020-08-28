@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/24_7_2018/ej_2/main.c
+stdio.h
+-
+sys/socket.h
+-
+unistd.h
+-
+netdb.h
+-
+stdbool.h
+-
+string.h
+-
+stdlib.h
+-
+

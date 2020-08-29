@@ -1,0 +1,44 @@
+1) Un constructor por copia en c++ es un constructor que recibe una instancia del objeto de la clase a la que pertenece el constructor, y utiliza a este para inicializar el objeto construido con los mismos atributos que el objeto recibido, es decir, copia todos los atributos del objeto recibido en el objeto construido. Es decir, si se construye un objeto A, recibiendo el objeto B, el objeto A va a almacenar (en general) en sus atributos los mismos valores que el objeto B.
+	Si el constructor por copia no es definido por el programador, entonces por default se define como una copia bit a bit de los argumentos. Esto puede ser perjudicial ya que si, por ejemplo, un objeto A a copiar tiene un puntero a memoria dinámica y se construye B como una copia de A, al destruirse alguna de las dos instancias se liberará la memoria, dejándola inválida para el otro objeto, que tal vez no fue destruido. Para solucionar este problema se debería definir un constructor por copia que aloque memoria para el objeto B y copie los datos que referencia el puntero de A en el puntero de B, quedandose entonces con punteros a bloques de memoria distintos y, por lo tanto, la destrucción de alguno de los dos objetos no afecta al otro.
+	Una forma de evitar que un objeto sea copiable es borrar tanto el constructor como la asignación por copia, de la siguiente forma: "firma = delete;".
+	El constructor por copia y el constructor por movimiento se diferencian en el hecho de que el primero no modifica el objeto recibido, mientras que el segundo sí, despojándolo de su información.
+	
+3)- void (*F)(int i): es la declaración de un puntero a una función que no retorna nada (o retorna void) y que recibe un entero.
+
+- static void B(float a, float b){}: es la definición de una función estática (es decir, que solo puede ser llamada o "vista" desde el archivo en el que es definida) que no retorna ningún valor y recibe como argumentos dos números del tipo float (número signado con coma). Está definida como una función que no realiza ninguna operación.
+
+- int *(*C)[5]: Es la declaración de un array de 5 elementos, que son punteros a funciones que retornan un puntero a un int y no reciben argumentos.
+
+5)class Complejo {
+private:
+	int real;
+	int imaginaria;
+	
+public:
+
+	Complejo(int real, int imaginaria) {
+		this->real = real;
+		this->imaginaria = imaginaria;
+	}
+
+	Complejo& operator++() {
+		++real;
+		++imaginaria;
+		return *this;
+	}
+	
+	Complejo operator-(const Complejo& other) {
+		Complejo retorno(real - other.imaginaria, imaginaria - other.imaginaria);
+		return retorno;
+	}
+};
+
+6) Una macro es un alias que se le da a texto, para que este sea remplazado en el código en el momento de precompilación donde sea que haya sido utilizado. Puede utilizarse para referirse a un dato (como un entero o una cadena de caracteres) como para un conjunto de operaciones (similar a una función). 
+	Si se quiere utilizar un macro para generar un alias de un conjunto de operaciones, entonces una buena práctica para asegurar el correcto funcionamiento de esta operación luego de la precompilación es el encierro de cada argumento en paréntesis, además del encierro entre paréntesis del llamado de la macro en el código.
+	
+8) El primer paso es la precompilación, etapa en la que se realizan las operaciones de precompilador (ej: #ifndef) y se remplazan las macros en el código. Luego de esto tiene lugar la verdadera sección que se llama compilación, en la que que hace la traducción del código de C luego de la precompilación al código de assembly que corresponda al procesador utilizado. Luego se pasa a la etapa de ensamblaje, en la qu se pasa el código de assembly a código binario, entendible por la computadora. Una vez relizado esto se pasa a la etapa de linkeo, en la que se juntan todas las definiciones de las funciones (sin tomar en cuenta las de liberías dinámicas) y se termina generando un único ejecutable que contiene todo el código necesario para ejecutar el programa (nuevamente, sin contar las funciones de librerías dinámicas).
+
+9) La ventaja que ofrece un lock raii frente a un lock/unlock es el hecho de que aquel es exception-safe. Esto se debe a que, cuando se tira una excepción (si esta al final es atrapada), se llaman a los destructores correspondientes en cada función cuya ejecución la excepción está interrumpiendo. Esto genera que, si se tira una excepción luego de hacer un lock raii, otro thread que acceda a ese mismo lock pueda continuar ejecutándose (ya que al destruirse el lock se liberó su mutex), y no quede en un deadlock por no haber hecho un unlock en el thread en el que se tiró la excepción. 
+
+10) Que una función sea bloqueante significa que, una vez llamada, el thread que la llamó se queda bloqueado en su ejecución (es decir, el programa no continúa ejecutando las siguientes líneas de código) hasta que se cumpla alguna condición impuesta por la función bloqueante. Si se quiere utilizar una función bloqueante pero al mismo tiempo mantener el programa ejecutando el resto de las instrucciones, entonces lo que se debe hacer es ejecutar la función bloqueante y el resto del programa en threads separados, ya que de esta forma se bloqueará únicamente el thread que contiene la función bloqueante, mientras que el resto de las operaciones se ejecutan normalmente.
+

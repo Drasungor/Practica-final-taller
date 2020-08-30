@@ -1,0 +1,10 @@
+9) Que ventaja ofrece un lock RAII frente al tradicional lock/unlock?
+
+La principal ventaja de un lock RAII es que es exception safe. Esto es que si
+por algun motivo se lanza una exception en un thread tenemos la garantia de que
+se hara el unlock correspondiente en el destructor de la clase, de forma que no
+tendremos un deadlock. El tradicional lock/unlock implicaria estar catcheando
+en todos lados exceptions con el objetivo de liberar el lock, lo cual no es muy
+diferente al chequeo de ifs en C y es propenso a bugs, ademas de que
+hace menos legible el codigo (que es en parte una de las cosas que deberian
+solucionar las exceptions).

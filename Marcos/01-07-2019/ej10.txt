@@ -1,0 +1,12 @@
+10) Que significa que una funcion sea bloqueante? Como subsanaria esa limitacion
+en terminos de mantener el programa 'vivo'?
+
+Una funcion es bloqueante cuando el flujo del codigo se detiene en dicha funcion
+hasta que se cumpla cierta condicion arbitraria.
+Esto resulta en un bottleneck del programa por lo que suele tratarse de minimizar
+llamadas a funciones bloqueantes, ya sea evitandolas directamente o delegandoselas
+a otros threads. Para la pregunta en cuestion, asumiendo que la llamada a la funcion
+bloqueante no es evitable entonces delegaria dicha llamda a otro thread de forma tal
+que el thread principal siga ejecutando el resto del codigo. Por supuesto esto implicaria
+que el resultado de esa funcion bloqueante no es necesario inmediatamente, lo cual no siempre
+es el caso, pero es la mejor alternativa.

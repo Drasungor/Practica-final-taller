@@ -1,0 +1,19 @@
+3) Describa con exactitud las siguientes declaraciones/definiciones globales:
+
+1. void (*F)(int i);
+
+Es una variable F de tipo puntero a una funcion que retorna void y recibe un entero
+como parametro.
+
+2. static void B(float a, float b){};
+
+Es una funcion llamada B que retorna void y recibe dos floats, la definicion de la funcion
+esta vacia asi que no hace literalmente nada. El keyword static indica que dicha funcion
+solo es llamable desde al archivo en el que se encuentra dicha funcion, de forma de que
+si el archivo es incluido en otro no se podra llamar a dicha funcion desde el archivo
+donde se lo esta incluyendo.
+
+3. int *(*C)[5];
+
+Es un array llamado C de capacidad para 5 punteros a funciones que retornan puntero
+a un entero y no reciben ningun parametro.

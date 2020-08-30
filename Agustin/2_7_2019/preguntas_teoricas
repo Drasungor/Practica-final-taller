@@ -1,0 +1,106 @@
+1) 
+
+#inclide <string>
+#include <iostream>
+
+class Numero {
+private:
+	std::string num_string;
+	
+public:
+	Numero(unsigned long numero_inicial){
+		num_string = std::to_string(numero_inicial);
+	}	
+
+	Numero() {
+		num_string = "0";
+	}
+
+	Numero(Numero&& other) {
+		num_string = std::move(other.num_string);
+	}
+
+	Numero& operator=(const Numero& other) {
+		num_string = other.num_string;
+	}
+
+	Numero& operator<<(const std::string& numero) {
+		num_string += numero;
+	}
+	
+	void operator()() {
+		std::cout << num_string;
+	}
+	
+	operator long() {
+		return std::stol(num_string);
+	}
+
+	Numero& operator++() {
+		unsigned long aux = std::stol(num_string);
+		aux++;
+		num_string = std__to_string(aux);
+		return *this;
+	}
+	
+	Numero& operator>>(Numero& other){
+		std::string aux = num_string;
+		aux += other.num_string;
+		other.num_string = std::move(aux);
+		return *this;
+	}
+};
+
+3) Un método virtual es aquel que le indica a un programa que se debe fijar en ejecución si ese método fue reimplementado en una clase hija a la cual pertenece el objeto que llama a ese método. Este tipo de método se utiliza para el polimorfismo, ya que la reimplementación del método para distintas clases permite que estas reaccionen de distinta forma al llamado del mismo método. Un ejemplo de una porción de código en la que el uso de un método virtual es imprescindible es:
+
+Se tienen las clases:
+
+class Animal {
+	virtual void hablar() {
+		std::cout << "Sonido de animal" << std::endl;
+	}
+};
+
+class Perro: public Animal {
+	void hablar() override {
+		std::cout << "Guau" << std::endl;
+	}
+};
+
+class Gato: public Animal {
+	void hablar() override {
+		std::cout << "Miau" << std::endl;
+	}
+};
+
+Si se tiene la siguiente función:
+
+void hacer_que_animal_hable(Animal* animal) {
+	animal->hablar;
+}
+
+Al recibir un puntero a Animal, la variable es casteada a ese tipo de dato, por lo que si el programa lo tratará como tal. Por esto, al llamar al método hablar, por ser virtual, se fijará si este método fue reimplementado, y como lo está ejecutará la versión reimplementada. Si el método no fuera virtual, no se fijaría si hubo una reimplementación, por lo que ejecutaría la implementación de la clase Animal, en vez de la implementación de la clase a la que realmente pertenece el objeto al que apunta el puntero.
+
+5) Se entiende por compilación condicional al uso de instrucciones que indican qué parte del código es compilada y qué no según una condición impuesta. Un ejemplo de esto es el uso de las instrucciones de precompilador en los headers:
+
+#ifndef NOMBRE_HEADER
+#define NOMBRE_HEADER
+
+declaracion de las firmas;
+
+#endif
+
+Lo que hacen estas instrucciones es: si no está definida la macro especificada, se compilará luego el código dentro del endif. El #define se encuentra para definir la macro previa, para que si se vuelve a incluir el archivo de headers no se cumpla la condición del if, por lo que no se tomará en cuenta para la compilación (en realidad, lo que hace es que no se "perciba" el texto dentro del if).
+
+7) 
+static long suma(long a, long b) {
+	return a + b;
+}
+
+unsigned int** p;
+
+static char c = 'a';
+
+8) El valor que indica sizeof(int) depende de la arquitectura en la que se corra esa función, puede ser de 2 o 4 bytes.
+
+

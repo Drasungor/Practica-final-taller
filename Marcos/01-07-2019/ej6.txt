@@ -1,0 +1,33 @@
+6) Que es una macro de C? Describa las buenas practicas para su definicion y
+ejemplifique.
+
+Una macro es un alias que se utiliza para texto, de forma tal que en vez de escribir
+dicho texto se escribe solamente el alias. Luego el precompilador de C se encargara
+de reemplazar todas las ocurrencias de dicho alias por el texto correspondiente,
+donde entonces dicho texto actua esencialmente como codigo. Es similar a una funcion
+con la diferencia de que la macro escribe el codigo para cada llamada al mismo pero evita
+el hecho de tener que leerlo en el codigo original.
+
+Buenas practicas para las macros es poner parentesis alrededor de la definicion de la macro
+y para cada argumento utilizado.
+
+Para ejemplificar:
+
+#define MIN(a,b)  a < b ? a : b     // WRONG
+
+int i = MIN(1,2); // works
+int i = MIN(1,1+1); // breaks
+
+#define MIN(a,b)  (a) < (b) ? (a) : (b)   // STILL WRONG
+
+int i = MIN(1,2); // works
+int i = MIN(1,1+1); // now works
+int i = MIN(1,2) + 1; // breaks
+
+#define MIN(a,b)  ((a) < (b) ? (a) : (b))   // GOOD
+
+int i = MIN(1,2); // works
+int i = MIN(1,1+1); // now works
+int i = MIN(1,2) + 1; // works
+
+However, MIN(3,i++) is still broken... Fuck this one

@@ -1,0 +1,33 @@
+8) Describa el proceso de transformacion de codigo fuente a un ejecutabe.
+Precise las etapas, las tareas desarrolladas y los tipos de error generados
+en cada una de ellas.
+
+Las etapas para el proceso de codigo fuente a un ejecutable son las siguientes:
+
+Precompilacion -> Compilacion -> Ensamblacion -> Linkeo
+
+En la precompilacion se reemplazan las llamadas a las macro con el codigo correspondiente
+de cada una, se reemplazan los #include con el codigo del archivo que incluyan
+y se resuelven los #if. Esto es tarea del precompilador.
+
+Luego viene la compilacion, donde se traduce el codigo anterior de C al Assembly
+correspondiente a al arquitectura para la cual se este compilando.
+
+Luego viene la ensamlacion, que consiste en traducir el codigo de Assembly a codigo
+de maquina (binario). Esta traduccion es 1 a 1, a diferencia de la compilacion, donde
+distintos compiladores generan codigo Assembly distinto.
+
+Por ultimo viene la etapa de Linkeo, donde el Linker junta todos los archivos binarios
+generados en la ensamblacion en un unico archivo ejectuable, resolviendo los llamados
+a funciones y bibliotecias estaticas. Por supuesto este archivo tambien sera binario.
+
+Algunos errores comunes son la falta de declaracion y definicion de una funcion en la etapa de compilacion,
+lo que resulta en que el compilador no sabe que traducir porque no sabe que hacer con esa funcion.
+Luego vienen los errores mas conocidos como cosas mal escritas o funciones que no retornan y/o reciben
+lo esperado.
+
+Por otro lado, el error mas comun en la etapa de Linkeo es cuando una funcion es declarada de forma
+tal que el programador le asegura al compilador que la definicion se encuentra en algun lado,
+fuere en el mismo archivo o en otro. En este caso es responsabilidad del Linker encontrar su definicion
+para poder generar el ejecutable final. En el caso que no encuentre en ninguno de los archivos provistos
+la definicion de la funcion se tiene un error de linkeo, fallando la generacion del ejecutable.

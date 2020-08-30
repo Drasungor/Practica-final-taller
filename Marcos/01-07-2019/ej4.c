@@ -17,27 +17,29 @@ el tiempo*/
 
 #define BUF_SIZE 32
 
-void deleteLine(FILE* file, FILE* aux, int startOffset, char* fileName) { /*startOffset es desde donde empiezo a copiar todo*/
+void deleteLine(FILE** file, FILE* aux, int startOffset, char* fileName) { /*startOffset es desde donde empiezo a copiar todo*/
     fseek(aux, startOffset, SEEK_SET);
-    char charRead = fgetc(file);
+    char charRead = fgetc(*file);
 
     while (charRead != EOF) {
         fputc(charRead, aux);
-        charRead = fgetc(file);
+        charRead = fgetc(*file);
     }
+
+    //printf("%ld\n", ftell(aux));
 
     ftruncate(fileno(aux), ftell(aux)); /*borro lo que sobra*/
     fflush(aux); /*escribo cambios a disco*/
-    fclose(file);
-    file = fopen(fileName, "r+"); /*actualizamos file*/
+    fclose(*file);
+    *file = fopen(fileName, "r+"); /*actualizamos file*/
 }
 
-int processLine(char buffer[BUF_SIZE], FILE* file, FILE* aux, int position, char* fileName) {
+int processLine(char buffer[BUF_SIZE], FILE** file, FILE* aux, int position, char* fileName) {
     if (strstr(buffer, "\n")) { /*si encontre el \n, es decir si lei la linea entera*/
         if (!strstr(buffer, " ")) { /*veo si hay un espacio, ver despues que hago si hay una sola palabra y muchos espacios*/
 
             deleteLine(file, aux, position, fileName);
-            fseek(file, position, SEEK_SET);
+            fseek(*file, position, SEEK_SET);
 
         }
     } else {
@@ -66,7 +68,7 @@ int main(int argc, char** argv) {
     fgets(buffer, BUF_SIZE, file); /*fgets lee BUF_SIZE - 1 bytes/caracteres ya que pone el /0 al final*/
 
     while (!feof(file)) {
-        int result = processLine(buffer, file, aux, position, fileName);
+        int result = processLine(buffer, &file, aux, position, fileName); /*paso FILE** file porque lo cierro y abro de nuevo en la fucion delete*/
         if (result == 0) {
             position = ftell(file);
         } else if (result == PARTIAL_LINE_SPACE_FOUND) {
@@ -78,7 +80,7 @@ int main(int argc, char** argv) {
 
 
     /*procesar una vez*/
-    processLine(buffer, file, aux, position, fileName);
+    processLine(buffer, &file, aux, position, fileName);
 
     fclose(file);
     fclose(aux);

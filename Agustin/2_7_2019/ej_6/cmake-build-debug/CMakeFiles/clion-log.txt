@@ -1,0 +1,11 @@
+/home/agustin/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2_7_2019/ej_6
+-- The C compiler identification is GNU 9.3.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2_7_2019/ej_6/cmake-build-debug

@@ -1,0 +1,46 @@
+1) Explique que es y para que sirve un constructor de copia en C++.
+
+El constructor por copia de C++ se encarga de, dada una clase o struct A,
+crear ("construir") un instancia 1 de A en base a otra instancia 2 de A provista,
+copiando los atributos de 2 en 1 sin modificar los atributos de 2 (distinto al
+constructor Move, donde se transfieren de la instancia 2 a la instancia 1).
+Este constructor sirve para crear un objeto de forma tal que contenga los mismos
+datos que otro pero siendo en esencia un objeto distinto (contienen los mismos
+datos pero pueden ser modificados independientemente).
+
+a) Indique como se comporta el sistema si este no es definido por el
+desarrollador.
+
+En el caso donde el desarrollador no defina el constructor por copia de forma
+explicita, el compilador definira implicitamente uno por el. En lo posible
+intentara definir un constructor por copia del tipo T::T(const T&), donde T
+es la clase o struct, el cual copiara bit a bit todos los atributos de la instancia
+2 a 1. En el caso donde no sea posible recibir const T& (por ejemplo si existiera una clase
+Padre que lo prohiba explicitamente) el compilador definira implicitamente el
+constructor por copia de tipo T::T(T&). Nuevamente, ambos constructores copian
+bit a bit los atributos que sean datos nativos, y para los atributos que sean
+objetos de X clase se llamara a su correspondiente constructor por copia.
+
+b) Explique al menos una estrategia para evitar que una clase particular sea copiable.
+
+La forma mas sencilla de lograr esto es prohibiendo explicitamente el constructor por copia y el operador=
+de dicha clase mediante la keyword delete. La firma seria del tipo delete T::T(const T&);
+y delete T::T(T&) para borrar los constructores por copia. Ademas se deben borrar los
+operator= para que no se pueda copiar fuera de la construccion del objeto,
+para esto se haria  delete T::operator=(const T&) y delete T::operator=(T&).
+De esta forma el compilador no permitira codigo que haga uso de funciones o constructores
+que copien objetos.
+
+c) Indique que diferencia existe entre un constructor por copa y move.
+
+A diferencia del constructor por copia (que se explico previamente) el constructor
+Move se caracteriza por "transferir" los datos que contiene un objeto a otro objeto.
+Se suele utilizar la expresion "transferir ownership" para estas operaciones.
+De esta forma, un objeto copia sus datos en otro (el cual pasara a tener el ownership de los mismos)
+mientras que reemplazara sus valores por datos "de relleno", es decir, el objeto sigue existiendo
+y siendo utilizable de forma segura (se puede acceder al mismo o modificar sus datos sin riesgo
+a memoria corrupta) pero ya no contiene datos significativos (se pueden pensar como "stubs"). Por ejemplo,
+para los datos nativos suele reemplazarse sus valores con "0" y para los punteros se reemplaza
+su valor con "nullptr". Es especialmente importante esto ultimo dado que sino ambos objetos apuntaran
+a la misma direccion de memoria sin saberlo y si uno la libera causara errores en el programa
+cuando el otro intente accederla (usualmente segmentation fault).

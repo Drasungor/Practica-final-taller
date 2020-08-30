@@ -12,14 +12,16 @@ el tiempo*/
 #include <unistd.h>
 #include <sys/types.h>
 
-#define BUF_SIZE 512
+#define PARTIAL_LINE_SPACE_FOUND -2
+#define PARTIAL_LINE_SPACE_NOT_FOUND -1
+
+#define BUF_SIZE 32
 
 void deleteLine(FILE* file, FILE* aux, int startOffset, char* fileName) { /*startOffset es desde donde empiezo a copiar todo*/
     fseek(aux, startOffset, SEEK_SET);
     char charRead = fgetc(file);
 
     while (charRead != EOF) {
-        printf("%d\n", startOffset);
         fputc(charRead, aux);
         charRead = fgetc(file);
     }
@@ -30,16 +32,27 @@ void deleteLine(FILE* file, FILE* aux, int startOffset, char* fileName) { /*star
     file = fopen(fileName, "r+"); /*actualizamos file*/
 }
 
-void processLine(char buffer[BUF_SIZE], FILE* file, FILE* aux, int position, char* fileName) {
+int processLine(char buffer[BUF_SIZE], FILE* file, FILE* aux, int position, char* fileName) {
     if (strstr(buffer, "\n")) { /*si encontre el \n, es decir si lei la linea entera*/
         if (!strstr(buffer, " ")) { /*veo si hay un espacio, ver despues que hago si hay una sola palabra y muchos espacios*/
 
-            //printf("%s", buffer);
             deleteLine(file, aux, position, fileName);
             fseek(file, position, SEEK_SET);
 
         }
+    } else {
+        if (strstr(buffer, " ")) {
+            return PARTIAL_LINE_SPACE_FOUND; /*esto me dice que hay mas de una palabra ya en la linea*/
+        }
+        return PARTIAL_LINE_SPACE_NOT_FOUND; /*indica que no termine de leer la linea y no encontre mas de una palabra todavia*/
     }
+    return 0;
+}
+
+void ignoreLine(char buffer[BUF_SIZE], FILE* file) {
+    do {
+        fgets(buffer, BUF_SIZE, file);
+    } while(!strstr(buffer, "\n"));
 }
 
 int main(int argc, char** argv) {
@@ -49,13 +62,17 @@ int main(int argc, char** argv) {
     if (!file || !aux) return -1;
 
     char buffer[BUF_SIZE]; /*Buffer para ir leyendo*/
-    int position = 0;
+    int position = 0; /*byte en el que empiiza en el archivo la linea que acabo de leer para asi poder borrarla en caso de que sea necesario*/
     fgets(buffer, BUF_SIZE, file); /*fgets lee BUF_SIZE - 1 bytes/caracteres ya que pone el /0 al final*/
-    //printf("%s\n", buffer);
 
     while (!feof(file)) {
-        processLine(buffer, file, aux, position, fileName);
-        position = ftell(file);
+        int result = processLine(buffer, file, aux, position, fileName);
+        if (result == 0) {
+            position = ftell(file);
+        } else if (result == PARTIAL_LINE_SPACE_FOUND) {
+            ignoreLine(buffer, file);
+            position = ftell(file);
+        }
         fgets(buffer, BUF_SIZE, file);
     }
 

@@ -48,18 +48,22 @@ void expandFile(FILE** file, char decNumber[DEC_BUF_SIZE], int startOffset) {
     int padding = 0;
     int bytesToExpand = strlen(decNumber) - 4;
     int stopOffset = startOffset + 3;
+    int writePosition = 0;
+    int readPosition = 0;
     fseek(*file, 0, SEEK_END);
     fwrite(&padding, sizeof(char), bytesToExpand, *file);
-    fflush(*file); /*escribimos los cambios a disco*/
-    FILE* aux = fopen("numeros.txt", "r+"); /*uso este para ir leyendo*/
-    fseek(*file, 0, SEEK_END);
-    fseek(aux, -bytesToExpand, SEEK_END);
+    fseek(*file, -1, SEEK_END);
+    writePosition = ftell(*file);
+    fseek(*file, -(bytesToExpand + 1), SEEK_END);
+    readPosition = ftell(*file);
 
-    while (ftell(aux) != stopOffset) {
-        char byte = fgetc(aux);
+    while (readPosition != stopOffset) {
+        fseek(*file, readPosition, SEEK_SET);
+        char byte = fgetc(*file);
+        fseek(*file, writePosition, SEEK_SET);
         fputc(byte, *file);
-        fseek(aux, -2*sizeof(char), SEEK_CUR);
-        fseek(*file, -2*sizeof(char), SEEK_CUR);
+        readPosition -= 1;
+        writePosition -= 1;
     }
 
     fseek(*file, startOffset, SEEK_SET); /*copio el decimal*/
@@ -69,8 +73,6 @@ void expandFile(FILE** file, char decNumber[DEC_BUF_SIZE], int startOffset) {
             break;
         fputc(decNumber[i], *file);
     }
-
-    fclose(aux);
 }
 
 int main() {

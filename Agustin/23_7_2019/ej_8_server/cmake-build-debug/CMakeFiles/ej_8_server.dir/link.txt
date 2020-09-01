@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/ej_8_server.dir/main.cpp.o  -o ej_8_server 

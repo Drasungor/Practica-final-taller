@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/ej_3.dir/main.cpp.o  -o ej_3  -lpthread 

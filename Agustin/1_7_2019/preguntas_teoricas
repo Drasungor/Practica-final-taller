@@ -9,71 +9,74 @@
 
 - int *(*C)[5]: Es la declaración de un array de 5 elementos, que son punteros a funciones que retornan un puntero a un int y no reciben argumentos.
 
-5)class Complejo {
+5)
+
+#include <iostream>
+
+class Complejo {
 private:
-	int real;
-	int imaginaria;
-	
+        int real;
+        int imaginaria;
+
 public:
 
-	Complejo(int real, int imaginaria) {
-		this->real = real;
-		this->imaginaria = imaginaria;
-	}
-	
-	Complejo(Complejo&& other) {
-		this->real = other.real;
-		other.real = 0;
-		this->imaginaria = other.imaginaria;
-		other.imaginaria = 0;
-	}
+        Complejo(int real, int imaginaria) {
+                this->real = real;
+                this->imaginaria = imaginaria;
+        }
 
-	Complejo& operator++() {
-		++real;
-		++imaginaria;
-		return *this;
-	}
-	
-	Complejo operator-(const Complejo& other) {
-		Complejo retorno(real - other.imaginaria, imaginaria - other.imaginaria);
-		return retorno;
-	}
-	
-	float operator float() {
-		return real + imaginaria; 
-	}
-	
-	friend ostream& operator<<(ostream& out, const Complejo& comp);
+        Complejo(Complejo&& other) {
+                this->real = other.real;
+                other.real = 0;
+                this->imaginaria = other.imaginaria;
+                other.imaginaria = 0;
+        }
 
-	friend istream& operator>>(istream& in, Complejo& comp);
-		
+        Complejo& operator++() {
+                ++real;
+                ++imaginaria;
+                return *this;
+        }
+
+        Complejo operator-(const Complejo& other) {
+                Complejo retorno(real - other.imaginaria, imaginaria - other.imaginaria);
+                return retorno;
+        }
+
+        operator float() {
+                return real + imaginaria;
+        }
+
+        friend std::ostream& operator<<(std::ostream& out, const Complejo& comp);
+
+        friend std::istream& operator>>(std::istream& in, Complejo& comp);
+
 };
-	
-	ostream& operator<<(ostream& out, const Complejo& comp) {
-		out << comp.real;
-		out << comp.imaginaria;
-		return out;
-	}
-	
-	istream& operator>>(istream& in, Complejo comp) {
-		string buffer;
-		char aux;
-		
-		in >> aux;
-		while(aux != '+') {
-			buffer.push_back();
-			in >> aux;
-		}
-		comp.real = std::stoi(buffer);
-		buffer.clear();
-		in >> aux;
-		while(aux != ',') {
-			buffer.push_back(aux);
-			in >> aux;
-		}
-		comp.imaginaria = std::stoi(buffer);
-		return in;
-	}
+
+        std::ostream& operator<<(std::ostream& out, const Complejo& comp) {
+                out << comp.real << " + " << comp.imaginaria << "i";
+                return out;
+        }
+
+        std::istream& operator>>(std::istream& in, Complejo& comp) {
+                std::string buffer;
+                char aux;
+
+                in >> aux;
+                while(aux != '+') {
+                        buffer.push_back(aux);
+                        in >> aux;
+                }
+                comp.real = std::stoi(buffer);
+                buffer.clear();
+                in >> aux;
+                while(aux != ',') {
+                        buffer.push_back(aux);
+                        in >> aux;
+                }
+                comp.imaginaria = std::stoi(buffer);
+                return in;
+        }
 
 6) Una macro es un alias que se le da a texto, para que este sea remplazado en el código en el momento de precompilación donde sea que haya sido utilizado. Puede utilizarse para referirse a un dato (como un entero o una cadena de caracteres) como para un conjunto de operaciones (similar a una función). 
 	Si se quiere utilizar un macro para generar un alias de un conjunto de operaciones, entonces una buena práctica para asegurar el correcto funcionamiento de esta operación luego de la precompilación es el encierro de cada argumento en paréntesis, además del encierro entre paréntesis del llamado de la macro en el código.

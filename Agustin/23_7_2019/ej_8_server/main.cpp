@@ -1,3 +1,9 @@
+
+//Hay un doble close de socket si falla la conexion de algun socket, lo ideal
+//seria tener distintos tipos de errores y chequear con eso si se tiene que
+//cerrar los sockets
+
+#define _POSIX_C_SOURCE 200112L
 #include <iostream>
 #include <string>
 #include <sys/socket.h>

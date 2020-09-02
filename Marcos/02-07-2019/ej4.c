@@ -10,6 +10,8 @@ en decimal)*/
 #include <string.h>
 #include <stdint.h>
 #include <math.h>
+#include <unistd.h>
+#include <sys/types.h>
 
 #define HEX_BUF_SIZE 5
 #define DEC_BUF_SIZE 6 /*el numero mas grande representable en unsigned con 2 bytes es (2^16 -1) = 65535*/
@@ -75,6 +77,35 @@ void expandFile(FILE** file, char decNumber[DEC_BUF_SIZE], int startOffset) {
     }
 }
 
+void truncateFile(FILE** file, char decNumber[DEC_BUF_SIZE], int startOffset) {
+    int writePosition = startOffset;
+    int readPosition = startOffset + 4;
+
+    fseek(*file, writePosition, SEEK_SET);
+
+    for (int i = 0; i < DEC_BUF_SIZE; ++i) {
+        if (decNumber[i] == '\0')
+            break;
+        fputc(decNumber[i], *file);
+        ++writePosition;
+    }
+
+    fseek(*file, readPosition, SEEK_SET);
+    char byteRead = fgetc(*file);
+
+    while (byteRead != EOF) {
+        fseek(*file, writePosition, SEEK_SET);
+        fputc(byteRead, *file);
+        ++writePosition;
+        ++readPosition;
+        fseek(*file, readPosition, SEEK_SET);
+        byteRead = fgetc(*file);
+    }
+
+    ftruncate(fileno(*file), writePosition);
+    fseek(*file, startOffset + strlen(decNumber), SEEK_SET);
+}
+
 int main() {
 
     FILE* file = fopen("numeros.txt", "r+");
@@ -89,7 +120,7 @@ int main() {
         hexToDecimalString(hexNumber, decNumber);
         int decLength = strlen(decNumber);
         if (decLength < 4) {
-            //truncateFile();
+            truncateFile(&file, decNumber, currPosition);
         } else if (decLength > 4) {
             expandFile(&file, decNumber, currPosition);
         } else {

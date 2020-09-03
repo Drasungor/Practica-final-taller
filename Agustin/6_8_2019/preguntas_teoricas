@@ -1,0 +1,13 @@
+1) Una macro de C es un alias que se le da a una porción de texto, ya sea una serie de operaciones (similar a una función) o un dato. Si se define una macro como una serie de operaciones, se considera buena práctica englobar la definición de la macro y cada argumento utilizado entre paréntesis, para evitar errores inesperados de ejecución debido a una "mala expación de macros". Un ejemplo de un error generado por la ausencia de macros es:
+
+#define SUMAR(x, y) x+y
+
+int duplicar_suma(int x, int y) {
+	return SUMAR(x, y) * 2;
+}
+
+Si se llama por ejemplo a la función duplicar_suma(5,5), esta retornará 15, ya que al remplazar la macro se tendrá "return 5+5 * 2, en vez del deseado 10 * 2, es por casos como este que la definición apropiada de la macro debería ser SUMAR(x, y) ((x)+(y)), ya que al remplazar la macro se tendría "return ((5)+(5)) * 2", que retornaría el esperado 20.
+
+2) Se llama compilación a un conjunto de procesos distintos, de los cuales la compilación real es parte. Se comienza por el procesamiento de las instrucciiones de preprocesador (remplazo de macros, ejecución de instrucciones como #ifndef, #include, etc). Luego se pasa a la compilación real, en la que hace el chequeo de sintaxis y, si este es exitoso, se traduce a código de assembly del procesador que tenga la pc utilizada. Una vez realizado esto se pasa a la etapa de ensamblado, en la que se traduce el código de assembly a código de máquina, instrucciones que entiende el procesador. Por último, se tiene la etapa de linkeo, en la que se juntan todas las definiciones de las distintas funciones en un único ejecutable, indicando qué porción de código se debe ejecutar cada vez que se llame a alguna función específica.
+
+3) char (*f)(int*, char[3);: es la declaración de un puntero a una función que retorna un char y recibe un puntero a un int y un puntero a char, puede verse en la firma que se tiene un array de 3 elementos, sin embargo, todo array es un puntero al primer elemento de este, y, en adición a esto, C no tiene chequeo de tamaño de arrays, por lo que el tamaño del array solo sirve para indicarle a quien use la función que para garantizar el buen funcionamiento de esta lo que debe recibir es un array de 3 posiciones. 

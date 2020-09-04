@@ -1,4 +1,4 @@
-//Se considera que el enunciado dice que 
+//Se considera que el enunciado dice que
 
 #include <iostream>
 #include <list>

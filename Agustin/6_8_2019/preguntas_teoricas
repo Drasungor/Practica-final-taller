@@ -11,3 +11,45 @@ Si se llama por ejemplo a la función duplicar_suma(5,5), esta retornará 15, ya
 2) Se llama compilación a un conjunto de procesos distintos, de los cuales la compilación real es parte. Se comienza por el procesamiento de las instrucciiones de preprocesador (remplazo de macros, ejecución de instrucciones como #ifndef, #include, etc). Luego se pasa a la compilación real, en la que hace el chequeo de sintaxis y, si este es exitoso, se traduce a código de assembly del procesador que tenga la pc utilizada. Una vez realizado esto se pasa a la etapa de ensamblado, en la que se traduce el código de assembly a código de máquina, instrucciones que entiende el procesador. Por último, se tiene la etapa de linkeo, en la que se juntan todas las definiciones de las distintas funciones en un único ejecutable, indicando qué porción de código se debe ejecutar cada vez que se llame a alguna función específica.
 
 3) char (*f)(int*, char[3);: es la declaración de un puntero a una función que retorna un char y recibe un puntero a un int y un puntero a char, puede verse en la firma que se tiene un array de 3 elementos, sin embargo, todo array es un puntero al primer elemento de este, y, en adición a esto, C no tiene chequeo de tamaño de arrays, por lo que el tamaño del array solo sirve para indicarle a quien use la función que para garantizar el buen funcionamiento de esta lo que debe recibir es un array de 3 posiciones. 
+
+8) 
+- variable global static: la keyword static hace que esta solo sea referenciable dentro del módulo (archivo) en el que fue declarada (es decir, si por ejemplo se hace un include del archivo que la contiene, no se tomará como declarada), además de hacer que esta tenga su memoria asignada al inicio del programa en el data segment. El hecho de que sea global permite que la variable sea referenciada en todo su módulo, es decir, en todas las funciones que se encuentren dentro de este.
+
+- variable local static: al igual que antes, la keyword static indica que esta variable tiene su memoria reservada al comienzo del programa y esta se encuentra en el data segment. Al ser local solo puede ser utilizada (o "referenciada") en el scope en el que fue declarada. Sin embargo, al vivir en el data segment, la variable no muere al terminar la función en la que esta es referenciable, sino que existe durante todo el programa. Esto permite que las modificaciones realizadas sobre ella se mantengan a pesar de que se corte su visibilidad, ya que su dirabilidad dura lo mismo que el programa. Si se tiene entonces una función que le suma a una variable estática 1, cada vez que se llame a esta aumentará su valor en 1.
+
+- atributo de clase static: al igual que con las otras variables static, este se instancia al inicio del programa y vive en el data segment. Es un atributo normal de clase, con la diferencia de que es el mismo para todas las instancias de la clase, es decir, al operar con ese atributo se opera con los valores almacenados en el data segment, si una instancia del objeto modifica ese atributo, todos los otros objetos instanciados verán los efectos de ese cambio, ya que accederán a la misma sección de memoria para operar con dicho atributo.
+
+9) Para que dos threads accedan al mismo recurso se debe hacer uso de un mutex (y otras clases que lo utilicen, como locks y condition variables), que "bloquea" una sección de código para que sea ejecutada únicamente por un thread al mismo tiempo, permitiendo también desbloquear esa restricción para que luego esa sección sea ejecutada otro (o el mismo) thread cuando le corresponda.
+
+10)
+class A {
+	A() {
+		std::cout << "A()" << std::endl;
+	}
+	
+	~A() {
+		std::cout << "~A()" << std::endl;
+	}
+};
+
+class B: public A {
+	B() {
+		std::cout << "B()" << std::endl;
+	}
+	
+	~A() {
+		std::cout << "~B()" << std::endl;
+	}
+};
+
+int main() {
+	B b;
+	return 0;
+}
+
+Como la clase B hereda de A, al construir B se llamará primero al constructor de A. Luego, cuando se destruya b, se llamará primero al destructor de B, ya que puede llegar a necesitar cosas de A, y luego de esto se llamará al destructor de A. Entonces el programa imprimirá por consola lo siguiente:
+A()
+B()
+~B()
+~A()
+

@@ -1,0 +1,120 @@
+P) Explique breve y concretamente que es f:
+	int (*f)(short int*, char[3]);
+
+R) Es un puntero a funcion que recibe como parametros un puntero a short int y un array de 3 chars y devuelve un int.
+
+
+
+
+
+P) Explique que es cada uno de los siguientes, haciendo referencia a su inicializacion, su comportamiento y el area de memoria donde residen
+a) Una variable global static
+b) Una variable local static
+c) Un atributo de clase static
+
+R)
+a) Se inicializa al principio del programa. Se puede acceder en cualquier funcion del programa y reside en el Data Segment.
+b) Se inicializa al principio del programa. Se puede acceder solo en la funcion donde fue declarada. Reside en el data segment
+c) Es una variable que se inicializa al crearse la primera instancia de la clase. Se puede acceder solo en una instancia de la clase. Reside en el data segment
+
+
+
+
+P) Como se logra que 2 threads accedan (lectura/escritura) a un mismo recurso compartido sin que se generen problemas de consistencia? Ejemplifique.
+
+R) Para acceder a un mismo recurso sin tener problemas de consistencia se puede usar un mutex. Este me permite bloquear el acceso a una porcion de codigo que acceda al recurso compartido mientras un hilo este ejecutando ese codigo. Es decir, si un hilo toma al mutex, ningun otro puede acceder a ese codigo por lo cual no habrá problemas de consistencia. Por ejemplo, si tengo
+
+void inc(int i) \{
+++i
+\}
+
+y llamo a esa funcion desde dos hilos puedo tener una race condition. Para evitar esto agrego un mutex y se soluciona el problema:
+
+void inc(int i) \{
+m.lock();
+++i;
+m.unlock();
+\}
+
+
+
+
+
+P) Que es una macro de C? Detalle las buenas practicas para su definicion. Ejemplifique
+
+R) Una macro es una direccion al precompilador que rme permite reemplazar una porcion de codigo por un nombre. Por ejemplo
+
+$\#$define sqrt(x) x*x
+
+Esto hara que el precompilador reemplaze todo el codigo que tenga la forma sqrt(x) por x*x. Una buena practica es definir bien la macro separando todo con los parentesis necesarios. En el caso del ejemplo, si yo hiciera sqrt(3+2), el precompilador lo reemplazara por 3+2*3+2, lo cual esta mal. Entonces deberia definir la macro como
+\\
+$\#$define sqrt(x) (x)*(x)
+
+
+
+
+
+P) Describa el proceso de transformacion de codigo fuente a ejecutable. Precise las etapas y las tareas desarrolladas en cada una de ellas
+
+R) Primero va la precompilacion, donde se ejecutan todas las instrucciones al precompilador como los $\#$define. Luego esta la compilacion, donde se pasa el codigo de C a codigo assembly. Luego se pasa el codigo assembly a binario. Por ultimo esta el linkeo, que une todas las bibliotecas necesarias en un unico archivo ejecutable
+
+
+
+
+
+
+P) Que significa que una funcion es bloqueante? Como subsanaria esa limitacion en termino de mantener el programa "vivo"?
+
+R) Que una funcione sea bloqueante significa que la ejecucion del programa se queda trabada en esa funcion hasta que se cumpla alguna condicion. Por ejemplo, cuando llamo a la funcion accept de socket el programa se queda trabado hasta q alguien se conecte. Para mantener el programa "vivo" se pueden utilizar un thread distinto al principal que se quede bloqueado hasta q se cumpla la condicion mientras el hilo principal sigue su ejecucion normalmente.
+
+
+
+
+
+
+
+P)Explique que son los metodos virtuales y para que sirven. De un breve ejemplo donde su uso sea imprescindible
+
+R) Un metodo virtual es un metodo reimplementado en una clase Derivada de otra clase Base. Si accedo a la clase derivada mediante un puntero o una referencia a una clase base, el modificador virtual hace que se decida en tiempo de ejecucion(en vez de compilacion) si debo ejecutar el metodo de la clase base o el de la clase derivada.
+
+
+
+
+
+
+
+P) Explique que se entiende por compilacion condicional. Ejemplifique mediante codigo
+
+R) La compilacion condicional es cuando la compilacion de una porcion de codigo depende de instrucciones del precompilador. Por ejemplo, cuando tengo un archivo .h tengo
+
+$\#$infdef HEADERNAME
+\\
+$\#$def HEADERNAME
+
+/*declaracion de funciones*/
+
+$\#$endif
+
+lo que hace esto es solo compilar el codigo solo si el archivo no fue compilado anteriormente
+
+
+
+
+P) Escriba las siguientes declaraciones/definiciones:
+a) Definicion de una funcion SUMA que tome dos enteros largos con signo y devuelva su suma. Esta funcion solo debe ser visible en el modulo donde se la definio
+b) Declaracion de un puntero a puntero a entero sin signo
+c) Definicion de un caracter solamente visible  en el modulo donde se define
+
+R)
+a) static long int SUMA(long int a, long int b) {
+		return a + b;
+}
+b) unsigned int** a;
+c) static char c = 'a';
+
+
+
+
+P) Que valor arroja sizeof(int)?
+
+R) 2 o 4 dependiendo la arquitectura

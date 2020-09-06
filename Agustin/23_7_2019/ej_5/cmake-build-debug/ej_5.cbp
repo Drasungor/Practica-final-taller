@@ -44,6 +44,10 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add directory="/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug/ej_5_autogen/include"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
@@ -71,6 +75,10 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add directory="/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug/ej_5_autogen/include"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
@@ -91,7 +99,20 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="ej_5_autogen">
+				<Option working_dir="/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug/Makefile&quot;  VERBOSE=1 ej_5_autogen"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 		</Build>
+		<Unit filename="/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug/ej_5_autogen/mocs_compilation.cpp">
+			<Option target="ej_5"/>
+		</Unit>
 		<Unit filename="/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/main.cpp">
 			<Option target="ej_5"/>
 		</Unit>

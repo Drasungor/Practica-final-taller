@@ -6,12 +6,16 @@
 
 #IncludeRegexTransform: 
 
+/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug/ej_5_autogen/mocs_compilation.cpp
+
 /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/main.cpp
 iostream
 -
 QMainWindow
 -
 QPainter
+-
+main.moc
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h
@@ -1124,5 +1128,11 @@ QtGui/qcursor.h
 QtGui/qkeysequence.h
 -
 QtGui/qevent.h
+-
+
+ej_5_autogen/include/main.moc
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
 -
 

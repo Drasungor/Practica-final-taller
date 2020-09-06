@@ -123,6 +123,46 @@ ej_5/fast:
 	$(MAKE) -f CMakeFiles/ej_5.dir/build.make CMakeFiles/ej_5.dir/build
 .PHONY : ej_5/fast
 
+#=============================================================================
+# Target rules for targets named ej_5_autogen
+
+# Build rule for target.
+ej_5_autogen: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ej_5_autogen
+.PHONY : ej_5_autogen
+
+# fast build rule for target.
+ej_5_autogen/fast:
+	$(MAKE) -f CMakeFiles/ej_5_autogen.dir/build.make CMakeFiles/ej_5_autogen.dir/build
+.PHONY : ej_5_autogen/fast
+
+ej_5_autogen/mocs_compilation.o: ej_5_autogen/mocs_compilation.cpp.o
+
+.PHONY : ej_5_autogen/mocs_compilation.o
+
+# target to build an object file
+ej_5_autogen/mocs_compilation.cpp.o:
+	$(MAKE) -f CMakeFiles/ej_5.dir/build.make CMakeFiles/ej_5.dir/ej_5_autogen/mocs_compilation.cpp.o
+.PHONY : ej_5_autogen/mocs_compilation.cpp.o
+
+ej_5_autogen/mocs_compilation.i: ej_5_autogen/mocs_compilation.cpp.i
+
+.PHONY : ej_5_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+ej_5_autogen/mocs_compilation.cpp.i:
+	$(MAKE) -f CMakeFiles/ej_5.dir/build.make CMakeFiles/ej_5.dir/ej_5_autogen/mocs_compilation.cpp.i
+.PHONY : ej_5_autogen/mocs_compilation.cpp.i
+
+ej_5_autogen/mocs_compilation.s: ej_5_autogen/mocs_compilation.cpp.s
+
+.PHONY : ej_5_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+ej_5_autogen/mocs_compilation.cpp.s:
+	$(MAKE) -f CMakeFiles/ej_5.dir/build.make CMakeFiles/ej_5.dir/ej_5_autogen/mocs_compilation.cpp.s
+.PHONY : ej_5_autogen/mocs_compilation.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -159,6 +199,10 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... ej_5"
+	@echo "... ej_5_autogen"
+	@echo "... ej_5_autogen/mocs_compilation.o"
+	@echo "... ej_5_autogen/mocs_compilation.i"
+	@echo "... ej_5_autogen/mocs_compilation.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

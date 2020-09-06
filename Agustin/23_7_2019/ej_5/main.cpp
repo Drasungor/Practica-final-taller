@@ -1,6 +1,7 @@
 #include <iostream>
 #include <QMainWindow>
 #include <QPainter>
+#include <main.moc>
 //#include <qt5/QtWidgets/QMainWindow>
 //#include <qt5/QtWidgets/qwidget.h>
 

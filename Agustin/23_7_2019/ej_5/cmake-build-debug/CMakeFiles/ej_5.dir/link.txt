@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/ej_5.dir/ej_5_autogen/mocs_compilation.cpp.o CMakeFiles/ej_5.dir/main.cpp.o  -o ej_5  /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.12.8 /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8 /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8 

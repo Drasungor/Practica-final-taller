@@ -5,15 +5,27 @@
 //#include <qt5/QtWidgets/QMainWindow>
 //#include <qt5/QtWidgets/qwidget.h>
 
+namespace Ui {
+    class MainWindow;
+}
+
 class MainWindow : public QMainWindow
 {
 Q_OBJECT
 
+private:
+    Ui::MainWindow *ui;
+
 public:
-    explicit MainWindow(QWidget *parent = 0): QMainWindow(parent) {
+    MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
+        ui->setupUi(this);
     }
 
-    void paintEvent(QPaintEvent *event) override {
+    MainWindow::~MainWindow() {
+        delete ui;
+    }
+
+    void MainWindow::paintEvent(QPaintEvent *event) {
         QPainter painter(this);
         painter.setBrush(Qt::DiagCrossPattern);
 
@@ -24,9 +36,8 @@ public:
 
         painter.setPen(pen);
         painter.drawRect(QRect(80,120,200,100));
-    }
 
-    ~MainWindow() override = default;
+    }
 
 };
 

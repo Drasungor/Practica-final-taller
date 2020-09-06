@@ -4,7 +4,8 @@
 #include <QWidget>
 #include <QLine>
 
-/*Dibujar un triangulo amarillo del tamanio de la ventana*/
+/*1) Escriba una rutina que dibuje un triangulo amarillo del tamanio de la
+ventana*/
 
 class Widget : public QWidget {
 protected:
@@ -28,9 +29,9 @@ protected:
         path.lineTo(width, height - 1); /*move here*/
         path.lineTo(width / 2, 0); /*move here*/
         path.lineTo (0, height - 1);
-        painter.setPen(Qt::yellow);
+        //painter.setPen(Qt::yellow); //esto es para el drawPath
         //painter.drawPath(path); esta linea dibuja el triangulo sin relleno
-        painter.fillPath(path, QBrush(QColor("yellow")));
+        painter.fillPath(path, QBrush(QColor("yellow"))); /*dibujar triangulo con relleno*/
     }
 };
 

@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/ej_8.dir/main.c.o  -o ej_8 

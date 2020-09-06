@@ -15,5 +15,4 @@ donde se lo esta incluyendo.
 
 3. int *(*C)[5];
 
-Es un array llamado C de capacidad para 5 punteros a funciones que retornan puntero
-a un entero y no reciben ningun parametro.
+Es un puntero a un array de 5 elementos de punteros a ints.

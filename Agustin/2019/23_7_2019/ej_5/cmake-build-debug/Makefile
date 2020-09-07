@@ -48,10 +48,10 @@ RM = /home/agustin/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bi
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5
+CMAKE_SOURCE_DIR = /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug
+CMAKE_BINARY_DIR = /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug/CMakeFiles /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5/cmake-build-debug/CMakeFiles /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

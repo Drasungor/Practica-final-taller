@@ -4,6 +4,7 @@
 CMakeFiles/ej_5.dir/ej_5_autogen/mocs_compilation.cpp.o: ej_5_autogen/mocs_compilation.cpp
 
 CMakeFiles/ej_5.dir/main.cpp.o: ../main.cpp
+CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QLine
 CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h
 CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h
 CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic.h
@@ -19,9 +20,11 @@ CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qconfig
 CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qconfig.h
 CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontainerfwd.h
 CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h
+CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreapplication.h
 CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h
 CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qdatastream.h
 CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h
+CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qeventloop.h
 CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h
 CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qfiledevice.h
 CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qflags.h
@@ -84,8 +87,9 @@ CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qevent.h
 CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qfont.h
 CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qfontinfo.h
 CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qfontmetrics.h
-CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qicon.h
+CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qguiapplication.h
 CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qimage.h
+CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qinputmethod.h
 CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qkeysequence.h
 CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qmatrix.h
 CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qpaintdevice.h
@@ -107,12 +111,11 @@ CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qtransfo
 CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qvector2d.h
 CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h
 CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs_win.h
-CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow
-CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h
+CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget
+CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h
+CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdesktopwidget.h
 CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h
-CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h
 CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgets-config.h
 CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgetsglobal.h
 CMakeFiles/ej_5.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h
-CMakeFiles/ej_5.dir/main.cpp.o: ej_5_autogen/include/main.moc
 

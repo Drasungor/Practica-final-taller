@@ -43,10 +43,10 @@ RM = /home/agustin/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bi
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5
+CMAKE_SOURCE_DIR = /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug
+CMAKE_BINARY_DIR = /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5/cmake-build-debug
 
 # Utility rule file for ej_5_autogen.
 
@@ -54,8 +54,8 @@ CMAKE_BINARY_DIR = /home/agustin/Documents/Taller_de_programacion_1/Practica-fin
 include CMakeFiles/ej_5_autogen.dir/progress.make
 
 CMakeFiles/ej_5_autogen:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target ej_5"
-	/home/agustin/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/linux/bin/cmake -E cmake_autogen /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug/CMakeFiles/ej_5_autogen.dir/AutogenInfo.json Debug
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target ej_5"
+	/home/agustin/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/linux/bin/cmake -E cmake_autogen /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5/cmake-build-debug/CMakeFiles/ej_5_autogen.dir/AutogenInfo.json Debug
 
 ej_5_autogen: CMakeFiles/ej_5_autogen
 ej_5_autogen: CMakeFiles/ej_5_autogen.dir/build.make
@@ -72,6 +72,6 @@ CMakeFiles/ej_5_autogen.dir/clean:
 .PHONY : CMakeFiles/ej_5_autogen.dir/clean
 
 CMakeFiles/ej_5_autogen.dir/depend:
-	cd /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5 /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5 /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug/CMakeFiles/ej_5_autogen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5 /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5 /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5/cmake-build-debug /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5/cmake-build-debug /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5/cmake-build-debug/CMakeFiles/ej_5_autogen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ej_5_autogen.dir/depend
 

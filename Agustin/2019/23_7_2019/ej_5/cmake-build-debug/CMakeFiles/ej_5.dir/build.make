@@ -43,10 +43,10 @@ RM = /home/agustin/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bi
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5
+CMAKE_SOURCE_DIR = /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug
+CMAKE_BINARY_DIR = /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/ej_5.dir/depend.make
@@ -59,29 +59,29 @@ include CMakeFiles/ej_5.dir/flags.make
 
 CMakeFiles/ej_5.dir/ej_5_autogen/mocs_compilation.cpp.o: CMakeFiles/ej_5.dir/flags.make
 CMakeFiles/ej_5.dir/ej_5_autogen/mocs_compilation.cpp.o: ej_5_autogen/mocs_compilation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ej_5.dir/ej_5_autogen/mocs_compilation.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej_5.dir/ej_5_autogen/mocs_compilation.cpp.o -c /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug/ej_5_autogen/mocs_compilation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ej_5.dir/ej_5_autogen/mocs_compilation.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej_5.dir/ej_5_autogen/mocs_compilation.cpp.o -c /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5/cmake-build-debug/ej_5_autogen/mocs_compilation.cpp
 
 CMakeFiles/ej_5.dir/ej_5_autogen/mocs_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ej_5.dir/ej_5_autogen/mocs_compilation.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug/ej_5_autogen/mocs_compilation.cpp > CMakeFiles/ej_5.dir/ej_5_autogen/mocs_compilation.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5/cmake-build-debug/ej_5_autogen/mocs_compilation.cpp > CMakeFiles/ej_5.dir/ej_5_autogen/mocs_compilation.cpp.i
 
 CMakeFiles/ej_5.dir/ej_5_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ej_5.dir/ej_5_autogen/mocs_compilation.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug/ej_5_autogen/mocs_compilation.cpp -o CMakeFiles/ej_5.dir/ej_5_autogen/mocs_compilation.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5/cmake-build-debug/ej_5_autogen/mocs_compilation.cpp -o CMakeFiles/ej_5.dir/ej_5_autogen/mocs_compilation.cpp.s
 
 CMakeFiles/ej_5.dir/main.cpp.o: CMakeFiles/ej_5.dir/flags.make
 CMakeFiles/ej_5.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ej_5.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej_5.dir/main.cpp.o -c /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ej_5.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej_5.dir/main.cpp.o -c /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5/main.cpp
 
 CMakeFiles/ej_5.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ej_5.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/main.cpp > CMakeFiles/ej_5.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5/main.cpp > CMakeFiles/ej_5.dir/main.cpp.i
 
 CMakeFiles/ej_5.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ej_5.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/main.cpp -o CMakeFiles/ej_5.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5/main.cpp -o CMakeFiles/ej_5.dir/main.cpp.s
 
 # Object files for target ej_5
 ej_5_OBJECTS = \
@@ -98,7 +98,7 @@ ej_5: /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.12.8
 ej_5: /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8
 ej_5: /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8
 ej_5: CMakeFiles/ej_5.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ej_5"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ej_5"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ej_5.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -111,6 +111,6 @@ CMakeFiles/ej_5.dir/clean:
 .PHONY : CMakeFiles/ej_5.dir/clean
 
 CMakeFiles/ej_5.dir/depend:
-	cd /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5 /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5 /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug/CMakeFiles/ej_5.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5 /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5 /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5/cmake-build-debug /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5/cmake-build-debug /home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5/cmake-build-debug/CMakeFiles/ej_5.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ej_5.dir/depend
 

@@ -6,17 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/cmake-build-debug/ej_5_autogen/mocs_compilation.cpp
-
-/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/23_7_2019/ej_5/main.cpp
-iostream
--
-QMainWindow
+/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/23_7_2019/ej_5/main.cpp
+qapplication.h
 -
 QPainter
 -
-main.moc
+QWidget
 -
+QLine
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QLine
+qline.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qline.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h
 QtCore/qglobal.h
@@ -110,6 +112,20 @@ limits.h
 new
 -
 
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreapplication.h
+QtCore/qglobal.h
+-
+QtCore/qstring.h
+-
+QtCore/qobject.h
+-
+QtCore/qcoreevent.h
+-
+QtCore/qeventloop.h
+-
+QtCore/qscopedpointer.h
+-
+
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h
 QtCore/qnamespace.h
 -
@@ -156,6 +172,10 @@ list
 map
 -
 utility
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qeventloop.h
+QtCore/qobject.h
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h
@@ -810,14 +830,20 @@ QtCore/qsharedpointer.h
 QtCore/qrect.h
 -
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qicon.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qguiapplication.h
 QtGui/qtguiglobal.h
 -
+QtCore/qcoreapplication.h
+-
+QtGui/qwindowdefs.h
+-
+QtGui/qinputmethod.h
+-
+QtCore/qlocale.h
+-
+QtCore/qpoint.h
+-
 QtCore/qsize.h
--
-QtCore/qlist.h
--
-QtGui/qpixmap.h
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qimage.h
@@ -840,6 +866,12 @@ QtCore/qrect.h
 QtCore/qstring.h
 -
 QtCore/qstringlist.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qinputmethod.h
+QtGui/qtguiglobal.h
+-
+QtCore/qobject.h
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qkeysequence.h
@@ -1062,16 +1094,32 @@ QtGui/qwindowdefs_win.h
 QtGui/qtguiglobal.h
 -
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow
-qmainwindow.h
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget
+qwidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtCore/qcoreapplication.h
+-
+QtGui/qwindowdefs.h
+-
+QtCore/qpoint.h
+-
+QtCore/qsize.h
+-
+QtGui/qcursor.h
+-
+QtWidgets/qdesktopwidget.h
+-
+QtGui/qguiapplication.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdesktopwidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
--
-QtWidgets/qtabwidget.h
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h
@@ -1080,14 +1128,6 @@ QtWidgets/qtwidgetsglobal.h
 QtCore/qobject.h
 -
 QtCore/qalgorithms.h
--
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h
-QtWidgets/qtwidgetsglobal.h
--
-QtWidgets/qwidget.h
--
-QtGui/qicon.h
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgets-config.h
@@ -1128,11 +1168,5 @@ QtGui/qcursor.h
 QtGui/qkeysequence.h
 -
 QtGui/qevent.h
--
-
-ej_5_autogen/include/main.moc
-QtCore/qbytearray.h
--
-QtCore/qmetatype.h
 -
 

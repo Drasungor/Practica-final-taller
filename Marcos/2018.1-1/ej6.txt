@@ -1,0 +1,14 @@
+6) Cual es el motivo por el cual las clases que utilizan templates se declaran
+y definen en los .h?
+
+Los templates, como su nombre lo indica, son "planillas" es decir que no
+definen clases en si mismas. Es necesario completarlos con algun tipo de dato
+para poder completar la definicion de la clase (para ejemplificar,
+std::list<T> no es una clase, std::list<int> si. std::list<char> por ejemplo
+seria una clase distinta a std::list<int>). Debido a esto es que debe generarse
+el codigo para la clase correspondiente de forma tal que pueda ser compilado.
+Como la compilacion implica tener el codigo fuente (de lo contrario no se podria
+compilar nada) es necesario tener la defincion de los templates. El hecho de que
+la definicion se encuentre en los .h es que si se encontrase en un cpp deberia incluirse
+ese cpp tambien para que pueda compilar, lo cual no tiene ninguna ventaja asi que
+la definicion va directamente en el .h.

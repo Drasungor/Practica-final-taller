@@ -1,0 +1,19 @@
+1) Que es la compilacion condicional? En que etapa del proceso de transformacion
+de codigo se resuelve? Ejemplifique mediante un codigo C dando un caso de uso util.
+
+La compilacion condicional se trata de compilar cierto bloque de codigo solo
+si cierta condicion se cumple (donde la condicion viene dada por el valor
+de una macro). Esto se resuelve en la etapa de precompilacion (es decir, es tarea
+del preprocesador).
+
+Suele ser util para evitar incluir bibliotecas mas de una vez de forma tal de
+no tener codigo repetido ni errores en compilacion de redefinicion.
+
+Ejemplo:
+
+#ifndef _ALGUNA_BIBLIO_H_
+#def _ALGUNA_BIBLIO_H_
+
+...codigo...
+
+#endif

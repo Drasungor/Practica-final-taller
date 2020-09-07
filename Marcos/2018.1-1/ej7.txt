@@ -1,0 +1,7 @@
+7) Cual es el uso de la funcion listen? Que parametros tiene y para que sirven?
+
+El uso de listen es para poner un limite a la "cola" de espera de clientes que
+quieren conectarse al servidor. Por ejemplo, si el limite fuera 20 y estuviera
+ya colmado, el cliente numero 21 seria rebotado (le llegaria un codigo de error
+en el connect). Los parametros del listen son primero el file descriptor (un int)
+y luego el limite de clientes de la cola (otro int).

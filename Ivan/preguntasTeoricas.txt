@@ -118,3 +118,43 @@ c) static char c = 'a';
 P) Que valor arroja sizeof(int)?
 
 R) 2 o 4 dependiendo la arquitectura
+
+
+
+P)Que es la compilacion condicional? En que etapa del proceso de transformacion de codigo se resuelve? Ejemplifique mediante un codigo C dando un caso de uso util.
+
+
+R) La compilacion condicional es cuando se compila una porcion de codigo dependiendo de si se cumple una condicion previa definida con la instrucciones #ifdef o #ifndef. 
+Se resuelve en precompilacion.
+ 
+#ifndef HEADER
+#define HEADER
+
+/* Declaraciones del .h */
+
+#endif
+Esto me permite compilar el archivo .h solo una vez.
+
+P) Cual es el motivo por el cual las clases que utilizan templates se declaran y definen en los .h?
+
+R) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

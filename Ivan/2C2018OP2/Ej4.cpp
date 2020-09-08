@@ -11,10 +11,10 @@ bool canPrintOdd(int n) {
     return (n % 2 != 0);
 }
 
-void printEven(int& n, std::mutex& m, std::condition_variable& cv) {
+void printer(int& n, std::mutex& m, std::condition_variable& cv, bool (*f)(int)) {
     std::unique_lock<std::mutex> lock(m);
     while(n < 100){
-        while (!((n % 2) == 0)) {
+        while (!f(n)) {
             cv.wait(lock);
         }
         std::cout << n << std::endl;
@@ -23,17 +23,6 @@ void printEven(int& n, std::mutex& m, std::condition_variable& cv) {
     }
 }
 
-void printOdd(int& n, std::mutex& m, std::condition_variable& cv) {
-    std::unique_lock<std::mutex> lock(m);
-    while(n < 100){
-        while (!((n % 2) != 0)) {
-            cv.wait(lock);
-        }
-        std::cout << n << std::endl;
-        ++n;
-        cv.notify_all();
-    }
-}
 
 int main(int argc, char** argv){
     std::mutex m;
@@ -41,8 +30,8 @@ int main(int argc, char** argv){
 
     int n = 1;
 
-    std::thread even(printEven, std::ref(n), std::ref(m), std::ref(cv));
-    std::thread odd(printOdd, std::ref(n), std::ref(m), std::ref(cv));
+    std::thread even(printer, std::ref(n), std::ref(m), std::ref(cv), &canPrintEven);
+    std::thread odd(printer, std::ref(n), std::ref(m), std::ref(cv), &canPrintOdd);
 
     even.join();
     odd.join();

@@ -32,7 +32,7 @@ int main(int argc, char** argv) {
 
     for (ptr = results; ptr != NULL; ptr->ai_next) {
         skt = socket(ptr->ai_family, ptr->ai_socktype, ptr->ai_protocol);
-        if(skt == -1) continue;
+        if(skt < 0) continue;
 
         s = connect(skt, ptr->ai_addr, ptr->ai_addrlen);
         if(s != -1) break;

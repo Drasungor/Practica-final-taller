@@ -1,0 +1,36 @@
+10) Que es un deadlock? Ejemplifique.
+
+Un deadlock es una situacion en la un hilo intenta adquirir un mutex (lockear)
+cierta seccion de codigo pero dicho mutex ya esta lockeado por otro hilo, por lo tanto
+este primer hilo debe esperar a que el otro lo libere. Si el otro por algun motivo no
+lo liberase nunca estariamos frente a un deadlock, es decir, el hilo que quiere ejecutar esa
+seccion de codigo se va a qudar esperando indefinidamente ya que el otro hilo no le va a
+liberar el mutex. Estos problemas suelen ser dificiles de debuggear ya que suelen suceder
+bajo ciertas condiciones muy especificas, por lo que podria no suceder consistentemente.
+
+Ejemplo:
+
+Imaginemos una clase Cuenta que representa una cuenta bancaria. Supongamos entonces
+un metodo Transferir(Cuenta1, Cuenta2, Monto) el cual recibe dos cuentas y realiza
+una transferencia de la Cuenta1 a la Cuenta2 de "monto" plata. En pseudocodigo tendriamos
+algo asi
+
+Transferir(Cuenta1, Cuenta2, Monto) {
+    Cuenta1.lock() {
+        Cuenta2.lock() {
+            Cuenta1.plata -= Monto;
+            Cuenta2.plata += Monto;
+        }
+    }
+}
+
+Cuenta.lock() evita que otro hilo pueda utilizar esa cuenta al mismo tiempo (para poder evitar race conditions).
+A primera vista no hay nada mal, pero, que pasaria si dos hilos intentasen hacer una
+transferencia entre Cuenta1 y Cuenta2 pero en sentidos contrarios?
+
+En dicho caso es posible que el hilo que transfiere de la Cuenta1 a la Cuenta2 lockee
+la Cuenta1 mientras que el que transifere de la Cuenta2 a la Cuenta1 lockee la Cuenta2
+de forma tal que cuando cada hilo va a lockear la siguiente Cuenta, esta ya se encuentra
+lockeada por el otro hilo, de forma tal que ambos van a quedar esperando a que liberen
+la del otro, lo cual viendo el codigo nunca sucedera. Esto es un ejemplo tipico de
+deadlock.

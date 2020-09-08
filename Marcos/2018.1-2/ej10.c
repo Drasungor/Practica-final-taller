@@ -18,7 +18,7 @@ char* strncat_new(char* S1, char* S2, int L) {
     }
 
     int sizeS1 = strlen(S1);
-    int sizeS2 =strlen(S2);
+    int sizeS2 = strlen(S2);
 
     int resultSize = sizeS1 + sizeS2 + 1; //+1 por el \0
     if (L < resultSize) {

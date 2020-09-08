@@ -1,0 +1,39 @@
+7) Explique la diferencia entre las etapas de compilacion y enlazado (linking).
+Escriba un breve ejemplo de codigo con errores para cada una de ellas indicandolos
+de forma clara.
+
+Se suele hablar de compilacion para las etapas de precompilacion, compliacion en si
+y ensamblacion. Es decir, cuando se traduce el codigo de texto escrito en un lenguaje
+de alto nivel a codigo binario correspondiente a la arquitectura para la cual se
+este compilando. Asumo que la pregunta habla de estas 3 etapas combinadas porque es muy
+generica. La precompilacion consiste en reemplazar las macros y procesar las directivas del
+preprocesador (las lineas que comienzan con #). Luego viene la compilacion en si, que es
+cuando se traduce el codigo de alto nivel a codigo de Assembly. Finalmente se ensambla este codigo de Assembly,
+donde se pasa a codigo binario (las instrucciones nativas de Assembly tiene una traduccion directa
+al codigo binario). Al completarse esto tendremos un archivo binario (.o) por cada archivo
+.c o .cpp que compilamos. Estos archivos finalmente se juntan en un unico programa ejecutable
+en la etapa de linkeo, la cual consiste basicamente en combinar el codigo de todos estos archivos binarios
+en uno solo que servira como ejecutable.
+
+Tipicos errores de compilacion:
+
+void foo(char* c) {
+
+}
+
+int main() {
+    int x <- Falta ; asi que habra error de compilacion por sintaxis.
+    foo(); <- foo espera un char* y no lo recibe, error de compilacion porque falta pasarle parametros
+    return 0;
+}
+
+Tipico error de linkeo:
+
+void foo(); <- Forward declaration de foo, en la etapa de linkeo se va
+                a buscar la definicion de foo en alguno de los archivos que se la hayan pasado para compilar
+
+int main() {
+    foo(); <-Llamamos a foo pero no le definimos la funcion en ningun otro lado ni archivo,
+            entonces el linker no sabra que hacer con esta funcion y tirara error de linkeo por undefined reference
+    return 0;
+}

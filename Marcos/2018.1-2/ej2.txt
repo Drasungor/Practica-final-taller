@@ -1,0 +1,23 @@
+2) Describa con exactitud las siguientes declaraciones/definiciones globales:
+
+a) extern char (*l)[3];
+
+b) static float *C[3];
+
+c) static int F(const short *a);
+
+Rtas:
+
+a) Declara una variable de tipo puntero a array de chars de 3 elementos indicando
+    que se encuentra definido en otro archivo, por lo que se resolvera en tiempo
+    de linkeo (si no se encuentra la definicion en otro archivo habra error de linker).
+
+b) Define un array de 3 elementos de punteros a float donde dicha variable es global
+    pero solo accesible dentro del archivo en el que esta declarada. Si otro archivo
+    lo incluyera no podria utilizarla (esto viene dado por la keyword static).
+
+c)  Declara una funcion F que recibe un puntero a short constante (esto es que
+    a puede cambiar a lo que apunta pero no cambiar los datos que esta apuntando)
+    y retorna un int. La keyword static implica que la funcion solo es invocable
+    dentro del archivo en el que esta declarada (al igual que para el item b,
+    si otro archivo incluyera el archivo donde se encuentra F no podria invocarla).

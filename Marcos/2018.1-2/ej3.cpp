@@ -14,7 +14,7 @@ a la que pertenezca, por lo que se lo suele llamar "variable/atributo de clase".
 #include <iostream>
 
 class Foo {
-private:
+public:
     static int someNumber; /*Declaracion de la variable de clase*/
 
 public:
@@ -27,5 +27,6 @@ int Foo::someNumber = 0; /*inicializacion*/
 
 int main() {
     Foo::print(); /*Vemos que podemos utilizar las variable de clase en los metodos de clase*/
+    std::cout << Foo::someNumber << std::endl; /*No se si quiere esto o lo otro, si quiere lo otro seria correcto que el atributo sea privado*/
     return 0;
 }

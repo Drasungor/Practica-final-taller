@@ -5,6 +5,8 @@
 #include <string.h>
 #include <string>
 
+#define SUMAR(x,y) x*y
+
 int get_server_fd(char* port) {
     int socket_fd = -1;
     struct addrinfo hints;
@@ -75,6 +77,7 @@ bool execute_program(int client_socket) {
 }
 
 int main() {
+    printf("%d\n", SUMAR(1+2, 3));
     int server_socket = get_server_fd("8080");
     if (server_socket == -1) {
         printf("Error de socket\n");

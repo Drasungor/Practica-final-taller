@@ -18,6 +18,7 @@ char* getNextWord(FILE** file, int readPosition) {
     int wordSize = DEFAULT_WORD_SIZE;
     int i = 1;
     char* word = NULL; /*reservo mi buffer inicial*/
+    char* aux = NULL;
 
     do {
         free(word); /*free(NULL) no hace nada asi que la primera vez no va a pasar nada*/

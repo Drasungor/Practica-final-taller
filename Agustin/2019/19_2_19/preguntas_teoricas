@@ -21,10 +21,11 @@ Una buena definición de la macro, que termina generando el resultado deseado es
 
 #define OPERACION(x, y) ((x)*(y)+(y))
 
-8) Se conoce como compilación a una serie de operaciones que terminan 
+8) Se conoce como compilación a una serie de operaciones (de la cual la verdadera compilación es una parte) que terminan generando un programa ejecutable. Este proceso comienza con la precompilación, en la que se ejecutan las instrucciones de preprocesador (remplazo de macros, condicionales de preprocesador, etc). Luego se pasa a la etapa de compilación, en la que se hace un chequeo de sintaxis y, si esta es correcta, se traducen las instrucciones a assembly. Una vez terminado esto se pasa a la etapa de ensamblaje, en la que se traducen las instrucciones a código de máquina, es decir, binario. Una vez realizada la traducción  se pasa a la etapa de linkeo, en la que se juntan las definiciones de todas las funciones en un mismo archivo, generando un ejecutable que contiene todo el código con el que se operará para correr el programa.
 
-9)
+9) El lock raii tiene la ventaja de ser exception-safe, cualidad que no posee el uso de m.lock() y m.unlock(). El uso de raii garantiza que, en caso de tirarse una excepción (si esta es agarrada en alguna parte del programa) se haga un unlock del thread. Esto evita que se presente un deadlock en caso de que un thread A tome un mutex y B se quede esperando para tomarlo, pero A tira una excepción antes de hacer un unlock, no permitiendo que B se apropie del mutex, dejándolo en un deadlock.
 
-10)
+10) Una función bloqueante es una función que no permite la ejecución de las siguientes instrucciones de ese thread hasta que se cumpla alguna condición (arbitraria). Un ejemplo de una función de este tipo es accept, que no trabará la ejecución del programa hasta que intente conectarse algún otro socket. 
+	Para mantener un programa ejecutando otras instrucciones mientras se llama a una función bloqueante se debe lanzar un thread, para que se quede trabado el thread que contiene la ejecución bloqueante, mientras que el que no la tiene realiza el resto de las operaciones del programa.
 
 

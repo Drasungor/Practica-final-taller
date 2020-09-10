@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/19_2_19/ej_4/main.c
+stdio.h
+-
+unistd.h
+-
+sys/types.h
+-
+stdbool.h
+-
+

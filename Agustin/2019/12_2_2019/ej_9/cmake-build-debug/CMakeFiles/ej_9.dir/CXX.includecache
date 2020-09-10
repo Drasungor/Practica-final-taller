@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/2019/12_2_2019/ej_9/main.cpp
+iostream
+-
+list
+-
+string
+-
+sys/socket.h
+-
+cstdint
+-
+netdb.h
+-
+unistd.h
+-
+string.h
+-
+string
+-
+

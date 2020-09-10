@@ -1,0 +1,31 @@
+1) Un constructor por copia es un constructor que recibe otra instancia de un objeto de la clase que se está construyendo, sin modificar esta última. Utiliza la instancia recibida para crear un objeto con los mismos datos que esta. 
+	Si el constructor no se encuentra definido por el programador, entonces se define uno por defecto, que realiza una copia bit a bit del objeto recibido en el construido, es decir, cualquier dato presente en el objeto recibido se copia de la misma manera en el construido. Esto es perjudicial si se trabaja con memoria dinámica ya que se copiará también el puntero, generando un doble free cuando se destruyan ambos objetos (o uso de memoria ya liberada, lo cual puede terminar en un segmentation fault). Es por este problema que se define el constructor por copia, alocando más memoria dinámica, en la que se copiará el contenido de la sección de memoria a la que apunta el objeto recibido.
+	Para que una clase no sea copiable se puede borrar su constructor por copia de la siguiente manera (suponiendo una clase llamada A):
+	A(const A& other) = delete;
+	La diferencia principal entre un constructor por copia y uno por movimiento es la modificación del objeto recibido. En el primero este no es modificado, mientras que en el segundo sí lo es. En el constructor por copia se realiza alocación de memoria de ser necesario, mientras que en el constructor por movimiento se saca el/los puntero/s (a memoria dinámica) del objeto recibido y se lo otorga al objeto construido, evitando nuevas alocaciones de memoria. Por último, al utilizar el constructor por copia el objeto recibido permanece intacto, mientras que en el constructor por movimiento el objeto recibido queda en un estado válido pero nulo, ya que le otorgó todos sus datos al objeto construido.
+
+3) 
+- void (*F)(int i);: es la declaración de una variable F que es del tipo puntero a una función que recibe un entero y no tiene valor de retorno.
+- static void B(float a, float b){}: es la definición de una función B que recibe dos variables de tipo float y no devuelve nada. Esta implementada sin código, por lo que no realiza operaciones al ser llamada.
+- int *(*C)[5]; es la declaración de un puntero a un array que contiene 5 punteros a int.
+
+6) Una macro de C es un alias para una porción de texto, esta puede ser un dato o un conjunto de operaciones (que puede recibir o no argumentos). En el momento de precompilacón, se remplaza el texto apropiado en los lugares en los que se haya utilizado la macro, dejando únicamente texto en su lugar (esto es lo que hace las macros "inseguras"). 
+	Buenas prácticas para su uso son el encierre de la definición de macro y de cada argumento entre paréntesis, ya que lo único que hace el uso de la macro es remplazar texto. Un ejemplo de errores generados por una mala definición de macros es:
+	
+#define OPERACION(x, y) x*y+y
+int x = OPERACION(1+1, 3) * 5;
+
+Al remplazar el texto, quedará: int x = 1+1*3+3*5 (que resulta ser 19), en vez del deseado int x = ((1+1)*3+3) * 5 (que resulta ser 45)
+
+Una buena definición de la macro, que termina generando el resultado deseado es entonces:
+
+#define OPERACION(x, y) ((x)*(y)+(y))
+
+8) Se conoce como compilación a una serie de operaciones (de la cual la verdadera compilación es una parte) que terminan generando un programa ejecutable. Este proceso comienza con la precompilación, en la que se ejecutan las instrucciones de preprocesador (remplazo de macros, condicionales de preprocesador, etc). Luego se pasa a la etapa de compilación, en la que se hace un chequeo de sintaxis y, si esta es correcta, se traducen las instrucciones a assembly. Una vez terminado esto se pasa a la etapa de ensamblaje, en la que se traducen las instrucciones a código de máquina, es decir, binario. Una vez realizada la traducción  se pasa a la etapa de linkeo, en la que se juntan las definiciones de todas las funciones en un mismo archivo, generando un ejecutable que contiene todo el código con el que se operará para correr el programa.
+
+9) El lock raii tiene la ventaja de ser exception-safe, cualidad que no posee el uso de m.lock() y m.unlock(). El uso de raii garantiza que, en caso de tirarse una excepción (si esta es agarrada en alguna parte del programa) se haga un unlock del thread. Esto evita que se presente un deadlock en caso de que un thread A tome un mutex y B se quede esperando para tomarlo, pero A tira una excepción antes de hacer un unlock, no permitiendo que B se apropie del mutex, dejándolo en un deadlock.
+
+10) Una función bloqueante es una función que no permite la ejecución de las siguientes instrucciones de ese thread hasta que se cumpla alguna condición (arbitraria). Un ejemplo de una función de este tipo es accept, que no trabará la ejecución del programa hasta que intente conectarse algún otro socket. 
+	Para mantener un programa ejecutando otras instrucciones mientras se llama a una función bloqueante se debe lanzar un thread, para que se quede trabado el thread que contiene la ejecución bloqueante, mientras que el que no la tiene realiza el resto de las operaciones del programa.
+
+

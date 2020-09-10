@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/Ejs_random/suprimir_letras_repetidas/main.c
+stdio.h
+-
+sys/types.h
+-
+unistd.h
+-
+

@@ -1,0 +1,3 @@
+/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/Ejs_random/pasar_archivo_a_decimal_2_punteros/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/Ejs_random/pasar_archivo_a_decimal_2_punteros/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/Ejs_random/pasar_archivo_a_decimal_2_punteros/cmake-build-debug/CMakeFiles/pasar_archivo_a_decimal_2_punteros.dir

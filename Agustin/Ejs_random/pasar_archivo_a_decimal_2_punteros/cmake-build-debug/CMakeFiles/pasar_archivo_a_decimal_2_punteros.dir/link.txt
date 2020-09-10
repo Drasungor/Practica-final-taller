@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/pasar_archivo_a_decimal_2_punteros.dir/main.c.o  -o pasar_archivo_a_decimal_2_punteros 

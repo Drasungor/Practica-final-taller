@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/Ejs_random/pasar_archivo_a_decimal_2_punteros/main.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+sys/types.h
+-
+unistd.h
+-
+stdbool.h
+-
+

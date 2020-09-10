@@ -3,7 +3,7 @@
 ######################################################################
 
 TEMPLATE = app
-TARGET = ej5
+TARGET = ej5alt
 INCLUDEPATH += .
 QT += widgets
 QT += gui
@@ -21,4 +21,4 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 # Input
-SOURCES += ej5.cpp
+SOURCES += ej5alt.cpp

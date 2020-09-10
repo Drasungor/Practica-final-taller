@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/agustin/Documents/Taller_de_programacion_1/Practica-final-taller/Agustin/Ejs_random/pasar_archivo_a_decimal/main.c
+stdio.h
+-
+sys/types.h
+-
+unistd.h
+-
+string.h
+-
+stdlib.h
+-
+
